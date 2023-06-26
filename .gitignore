@@ -1,0 +1,7 @@
+/.vscode/
+/.vs/
+/build/
+/build_linux/
+/out/
+/NDKPath.txt
+/*.bat

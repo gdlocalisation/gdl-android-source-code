@@ -1,0 +1,9 @@
+[submodule "libs/fmt"]
+	path = libs/fmt
+	url = https://github.com/fmtlib/fmt.git
+[submodule "libs/utf8"]
+	path = libs/utf8
+	url = https://github.com/nemtrif/utfcpp.git
+[submodule "libs/jansson"]
+	path = libs/jansson
+	url = https://github.com/akheron/jansson.git
