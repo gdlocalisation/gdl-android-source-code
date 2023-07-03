@@ -4,8 +4,6 @@
 #include <dirent.h>
 #include <regex>
 
-#define GDL_DEBUG
-
 #define HOOK_FUNC(retType, name, ...)                                                                                                      \
     retType (*name##_o)(__VA_ARGS__);                                                                                                      \
     retType name##_hk(__VA_ARGS__)

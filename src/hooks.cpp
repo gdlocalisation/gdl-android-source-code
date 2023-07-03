@@ -165,13 +165,10 @@ namespace Hooks {
         reinterpret_cast<void (*)(string*, int)>(
             dlsym(dlopen("libcocos2dcpp.so", RTLD_LAZY), "_ZN12GauntletNode11nameForTypeE12GauntletType"))(&gauntletName, gauntletType);
 
-        if (shouldReverseGauntlet(gauntletType)) {
-            nameLabel->setString(string("Остров ").append(gauntletName).c_str());
-            shadowLabel->setString(string("Остров ").append(gauntletName).c_str());
-        } else {
-            nameLabel->setString(gauntletName.append(" Остров").c_str());
-            shadowLabel->setString(gauntletName.c_str());
-        }
+        auto newName = fmt::format(shouldReverseGauntlet(gauntletType) ? "Остров {}" : "{} Остров", gauntletName);
+
+        nameLabel->setString(newName.c_str());
+        shadowLabel->setString(newName.c_str());
 
         return true;
     }
@@ -191,7 +188,7 @@ namespace Hooks {
                     lbl = node;
         }
 
-        lbl->setString(string("Таблица Лидеров для ").append(MBO(string, lvl, 252)).c_str());
+        lbl->setString(fmt::format("Таблица Лидеров для {}", MBO(string, lvl, 252)).c_str());
 
         return true;
     }
@@ -202,7 +199,7 @@ namespace Hooks {
         auto spr = cocos2d::CCSprite::createWithSpriteFrameName("gdl_icon.png");
         spr->setScale(1.25f);
 
-        auto btn = CCMenuItemSpriteExtra::create(spr, spr, self, (cocos2d::SEL_MenuHandler)&GDLMenu::openLayer);
+        auto btn = CCMenuItemSpriteExtra::create(spr, spr, self, menu_selector(GDLMenu::openLayer));
         btn->setPosition({0, 0});
 
         auto menu = CCMenu::create();
@@ -270,7 +267,7 @@ namespace Hooks {
 
         auto winSize = CCDirector::sharedDirector()->getWinSize();
 
-        auto lbl = CCLabelBMFont::create("GDL 1.1.1", "goldFont.fnt");
+        auto lbl = CCLabelBMFont::create("GDL 1.1.2", "goldFont.fnt");
         lbl->setPosition({winSize.width / 2.f, winSize.height - 15.f});
         lbl->setScale(.8f);
         self->addChild(lbl);
