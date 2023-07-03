@@ -267,7 +267,7 @@ namespace Hooks {
 
         auto winSize = CCDirector::sharedDirector()->getWinSize();
 
-        auto lbl = CCLabelBMFont::create("GDL 1.1.2", "goldFont.fnt");
+        auto lbl = CCLabelBMFont::create("GDL v1.1.2", "goldFont.fnt");
         lbl->setPosition({winSize.width / 2.f, winSize.height - 15.f});
         lbl->setScale(.8f);
         self->addChild(lbl);
