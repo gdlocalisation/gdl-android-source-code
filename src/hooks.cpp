@@ -109,11 +109,11 @@ namespace Hooks {
 
     HOOK_FUNC(void, openURL, void* self, const char* url) {
         if (string(url) == "http://robtopgames.com/blog/2017/02/01/geometry-dash-newgrounds")
-            url = "https://gdlocalisation.netlify.app/gd/blog/ru/#newgrounds_start";
+            url = "https://gdlocalisation.uk/gd/blog/ru/#newgrounds_start";
         else if (string(url) == "http://www.boomlings.com/files/GJGuide.pdf")
-            url = "https://gdlocalisation.netlify.app/gd/gjguide/ru/gjguide_ru.pdf";
+            url = "https://gdlocalisation.uk/gd/gjguide/ru/gjguide_ru.pdf";
         else if (string(url) == "http://www.robtopgames.com/gd/faq")
-            url = "https://gdlocalisation.netlify.app/gd/blog/ru";
+            url = "https://gdlocalisation.uk/gd/blog/ru";
 
         openURL_o(self, url);
     }
